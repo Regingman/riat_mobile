@@ -9,13 +9,13 @@ import 'domain/Task.dart';
 import 'domain/UserMain.dart';
 import 'main.dart';
 
-class CCList extends StatefulWidget {
+class MainPage extends StatefulWidget {
   @override
-  CCListState createState() => new CCListState();
+  MainPageState createState() => new MainPageState();
 }
 
-class CCListState extends State<CCList> {
-  String url = CCTracker.getUrl;
+class MainPageState extends State<MainPage> {
+  String url = RiatMobile.getUrl;
   List<Task> task = [];
   List<CCData> data = [];
   UserMain user = new UserMain(id: 1, firstName: "", telephon: "");

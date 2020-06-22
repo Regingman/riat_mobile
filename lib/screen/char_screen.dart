@@ -81,7 +81,7 @@ class _ChatScreenState extends State<ChatScreen> {
   _loadCC() async {
     print(widget.user);
     if (flag == false) {
-      String url = CCTracker.getUrl;
+      String url = RiatMobile.getUrl;
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
       String token = sharedPreferences.getString('token');
@@ -109,7 +109,7 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   _sendMsg(value) async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     int userId = sharedPreferences.getInt('user');

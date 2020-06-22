@@ -10,7 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../department_statistic_page.dart';
 import '../main.dart';
 import 'package:http/http.dart' as http;
-import '../CCList.dart';
+import '../MainPage.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
   String token;
 
   _loadStoryModel() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     token = sharedPreferences.getString('token');
     int userId = sharedPreferences.getInt('user');
@@ -72,7 +72,7 @@ class _HomeState extends State<Home> {
         Navigator.push(
             context,
             new MaterialPageRoute(
-                builder: (BuildContext context) => new CCList()));
+                builder: (BuildContext context) => new MainPage()));
       },
       child: Scaffold(
         appBar: AppBar(
@@ -83,7 +83,7 @@ class _HomeState extends State<Home> {
                 Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (BuildContext context) => new CCList()));
+                        builder: (BuildContext context) => new MainPage()));
               }),
           title: Text("Отдел"),
           actions: <Widget>[
@@ -236,7 +236,7 @@ class _HomeState extends State<Home> {
             Navigator.push(
                 context,
                 new MaterialPageRoute(
-                    builder: (BuildContext context) => new CCList()));
+                    builder: (BuildContext context) => new MainPage()));
           },
         ),
       ),
@@ -255,7 +255,7 @@ class StoryTile extends StatelessWidget {
       @required this.id,
       @required this.token});
   @override
-  String url = CCTracker.getUrl;
+  String url = RiatMobile.getUrl;
 
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -321,7 +321,7 @@ class ChatTile extends StatelessWidget {
       @required this.name,
       @required this.userId,
       @required this.token});
-  String url = CCTracker.getUrl;
+  String url = RiatMobile.getUrl;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

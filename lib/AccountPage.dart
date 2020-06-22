@@ -2,11 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:my_first_flutter_project/screen/char_screen.dart';
-import 'package:my_first_flutter_project/views/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
-import 'CCList.dart';
+import 'MainPage.dart';
 import 'domain/UserMain.dart';
 import 'main.dart';
 
@@ -22,7 +21,7 @@ class AccountPage extends StatefulWidget {
 class _AccountPageState extends State<AccountPage> {
   int id;
   String token;
-  String url = CCTracker.getUrl;
+  String url = RiatMobile.getUrl;
 
   _AccountPageState({this.id});
   bool flag = true;
@@ -105,7 +104,7 @@ class _AccountPageState extends State<AccountPage> {
   int departmentId;
 
   _loadUser() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     token = sharedPreferences.getString('token');
     int userId = sharedPreferences.getInt('user');
@@ -212,7 +211,7 @@ class _AccountPageState extends State<AccountPage> {
               Navigator.push(
                   context,
                   new MaterialPageRoute(
-                      builder: (BuildContext context) => new CCList()));
+                      builder: (BuildContext context) => new MainPage()));
             },
             child: Scaffold(
               appBar: AppBar(
@@ -223,7 +222,7 @@ class _AccountPageState extends State<AccountPage> {
                       Navigator.push(
                           context,
                           new MaterialPageRoute(
-                              builder: (BuildContext context) => new CCList()));
+                              builder: (BuildContext context) => new MainPage()));
                     }),
                 title: Text("Профиль"),
               ),
@@ -253,7 +252,7 @@ class _AccountPageState extends State<AccountPage> {
                   Navigator.push(
                       context,
                       new MaterialPageRoute(
-                          builder: (BuildContext context) => new CCList()));
+                          builder: (BuildContext context) => new MainPage()));
                 },
               ),
             ),

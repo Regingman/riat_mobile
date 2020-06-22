@@ -6,7 +6,7 @@ import 'package:my_first_flutter_project/subtask_create_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'All_taskPage.dart';
-import 'CCList.dart';
+import 'MainPage.dart';
 import 'animation/FadeAnimation.dart';
 import 'domain/Task.dart';
 import 'main.dart';
@@ -252,7 +252,7 @@ class _TaskDetailManagerPage extends State<TaskDetailManagerPage> {
   }
 
   _taskApp() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     int userId = 1;
@@ -285,7 +285,7 @@ class _TaskDetailManagerPage extends State<TaskDetailManagerPage> {
   }
 
   _loadCC() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     int taskId = sharedPreferences.getInt('task');
@@ -381,7 +381,7 @@ class _TaskDetailManagerPage extends State<TaskDetailManagerPage> {
   remove(int i) async {
     task.removeAt(i);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     String token = sharedPreferences.getString('token');
    await http.delete('$url/listOfEmployee/${task[i].id}',
         headers: {"Authorization": "Bearer_$token"});

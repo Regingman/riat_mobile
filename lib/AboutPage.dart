@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:my_first_flutter_project/CCList.dart';
+import 'package:my_first_flutter_project/MainPage.dart';
 import 'package:my_first_flutter_project/models/statistic.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,7 +27,7 @@ class _AboutPage extends State<AboutPage> {
   List<charts.Series<Sales, int>> _seriesLineData;
 
   _generateData() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     int userId = sharedPreferences.getInt('user');
@@ -221,7 +221,7 @@ class _AboutPage extends State<AboutPage> {
                 Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (BuildContext context) => new CCList()));
+                        builder: (BuildContext context) => new MainPage()));
               },
             ),
             bottom: TabBar(

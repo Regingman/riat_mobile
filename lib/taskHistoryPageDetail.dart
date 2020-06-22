@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:my_first_flutter_project/TaskHistoryPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
-import 'CCList.dart';
+import 'MainPage.dart';
 import 'animation/FadeAnimation.dart';
 import 'domain/Task.dart';
 import 'main.dart';
@@ -39,7 +39,7 @@ class _TaskHistoryPageDetail extends State<TaskHistoryPageDetail> {
         Navigator.push(
             context,
             new MaterialPageRoute(
-                builder: (BuildContext context) => new CCList()));
+                builder: (BuildContext context) => new MainPage()));
       },
       child: _isLoading
           ? Center(child: CircularProgressIndicator())
@@ -52,7 +52,7 @@ class _TaskHistoryPageDetail extends State<TaskHistoryPageDetail> {
                       Navigator.push(
                           context,
                           new MaterialPageRoute(
-                              builder: (BuildContext context) => new CCList()));
+                              builder: (BuildContext context) => new MainPage()));
                     }),
                 title: Text("Задача"),
               ),
@@ -193,7 +193,7 @@ class _TaskHistoryPageDetail extends State<TaskHistoryPageDetail> {
                   Navigator.push(
                       context,
                       new MaterialPageRoute(
-                          builder: (BuildContext context) => new CCList()));
+                          builder: (BuildContext context) => new MainPage()));
                 },
               ),
             ),
@@ -201,7 +201,7 @@ class _TaskHistoryPageDetail extends State<TaskHistoryPageDetail> {
   }
 
   _loadCC() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     int taskId = sharedPreferences.getInt('task');

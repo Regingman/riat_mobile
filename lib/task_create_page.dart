@@ -6,7 +6,7 @@ import 'package:my_first_flutter_project/models/employee_list.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:http/http.dart' as http;
-import 'CCList.dart';
+import 'MainPage.dart';
 
 import 'package:intl/intl.dart';
 import 'domain/data.dart';
@@ -133,7 +133,7 @@ class FormScreenState extends State<FormScreen> {
         Navigator.push(
             context,
             new MaterialPageRoute(
-                builder: (BuildContext context) => new CCList()));
+                builder: (BuildContext context) => new MainPage()));
       },
       child: Scaffold(
         appBar: AppBar(
@@ -144,7 +144,7 @@ class FormScreenState extends State<FormScreen> {
                 Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (BuildContext context) => new CCList()));
+                        builder: (BuildContext context) => new MainPage()));
               }),
           title: Text("Создание задачи"),
         ),
@@ -206,7 +206,7 @@ class FormScreenState extends State<FormScreen> {
   }
 
   Future<List<OrderList>> _getOrderList() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     final responseContainers = await http
@@ -227,7 +227,7 @@ class FormScreenState extends State<FormScreen> {
   }
 
   Future<List<EmployeeList>> _getEmployeeList() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     final responseContainers = await http.get('$url/departmentStaff',
@@ -326,7 +326,7 @@ class FormScreenState extends State<FormScreen> {
       "ownDate": '${_dateTime.year}-$timeMonth-$timeDay $timeH:$timeM:$timeS'
     };
     var jsonResponse;
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     var response = await http.post("$url/task",
         headers: {
           "Content-Type": "application/json",
@@ -351,7 +351,7 @@ class FormScreenState extends State<FormScreen> {
                     onPressed: () {
                       Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
-                              builder: (BuildContext context) => CCList()),
+                              builder: (BuildContext context) => MainPage()),
                           (Route<dynamic> route) => false);
                     },
                   )

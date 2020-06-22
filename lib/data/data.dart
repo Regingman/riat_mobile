@@ -12,7 +12,7 @@ Future<List<StoryModel>> getStories() async {
   List<StoryModel> stories = new List();
   StoryModel storyModel = new StoryModel();
 
-  String url = CCTracker.getUrl;
+  String url = RiatMobile.getUrl;
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   String token = sharedPreferences.getString('token');
   int userId = sharedPreferences.getInt('user');

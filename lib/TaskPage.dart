@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:my_first_flutter_project/CCList.dart';
+import 'package:my_first_flutter_project/MainPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'animation/FadeAnimation.dart';
@@ -38,7 +38,7 @@ class _TaskPageState extends State<TaskPage> {
         Navigator.push(
             context,
             new MaterialPageRoute(
-                builder: (BuildContext context) => new CCList()));
+                builder: (BuildContext context) => new MainPage()));
       },
       child: Scaffold(
         appBar: AppBar(
@@ -49,7 +49,7 @@ class _TaskPageState extends State<TaskPage> {
                 Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (BuildContext context) => new CCList()));
+                        builder: (BuildContext context) => new MainPage()));
               }),
           title: Text("Задача"),
         ),
@@ -231,7 +231,7 @@ class _TaskPageState extends State<TaskPage> {
 
   _taskApp() async {
     if (mainTask.taskStatusId != 2) {
-      String url = CCTracker.getUrl;
+      String url = RiatMobile.getUrl;
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
       String token = sharedPreferences.getString('token');
@@ -243,7 +243,7 @@ class _TaskPageState extends State<TaskPage> {
   }
 
   _loadCC() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     int taskId = sharedPreferences.getInt('task');

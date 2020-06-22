@@ -42,7 +42,7 @@ class _PdfPage extends State<PdfPage> {
   UserMain user = new UserMain();
 
   _loadCC() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     int userId = sharedPreferences.getInt('user');

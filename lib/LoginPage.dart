@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_first_flutter_project/main.dart';
-import 'CCList.dart';
+import 'MainPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     Map data = {'username': email.trim(), 'password': pass};
     var jsonResponse;
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     //  print(await apiRequest("$url/api/v1/auth/login", data));
     var response = await http.post("$url/api/v1/auth/login",
         headers: {"Content-Type": "application/json"},
@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
         sharedPreferences.setInt("user", jsonResponse['id']);
         sharedPreferences.setString("token", jsonResponse['token']);
         Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (BuildContext context) => CCList()),
+            MaterialPageRoute(builder: (BuildContext context) => MainPage()),
             (Route<dynamic> route) => false);
       }
     } else {
@@ -119,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                 setState(() {
                   _isLoading = true;
                 });
-                CCTracker.setUrl = emailController.text;
+                RiatMobile.setUrl = emailController.text;
               },
         elevation: 0.0,
         color: Colors.indigo,

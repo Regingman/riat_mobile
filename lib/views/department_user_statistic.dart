@@ -21,7 +21,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  String url = CCTracker.getUrl;
+  String url = RiatMobile.getUrl;
   String token;
   List<Statistic> statistic = new List<Statistic>();
 
@@ -43,7 +43,7 @@ class _DashboardState extends State<Dashboard> {
     var taskListS = List<Statistic>();
     var taskListP = List<Statistic>();
 
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     int userId = sharedPreferences.getInt('orderUser');

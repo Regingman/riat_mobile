@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_flutter_project/AboutPage.dart';
 import 'package:my_first_flutter_project/AccountPage.dart';
-import 'package:my_first_flutter_project/CCList.dart';
+import 'package:my_first_flutter_project/MainPage.dart';
 import 'package:my_first_flutter_project/LoginPage.dart';
 import 'package:my_first_flutter_project/TaskHistoryPage.dart';
 import 'package:my_first_flutter_project/TaskPage.dart';
@@ -15,9 +15,9 @@ import 'package:my_first_flutter_project/views/home.dart';
 import 'All_taskPage.dart';
 import 'first.dart';
 
-void main() => runApp(CCTracker());
+void main() => runApp(RiatMobile());
 
-class CCTracker extends StatelessWidget {
+class RiatMobile extends StatelessWidget {
   static String url = "http://034631a74356.ngrok.io";
 
   static String get getUrl {
@@ -38,7 +38,7 @@ class CCTracker extends StatelessWidget {
       initialRoute: '/first',
       routes: {
         '/login': (context) => LoginPage(),
-        '/mainEmployee': (context) => CCList(),
+        '/mainEmployee': (context) => MainPage(),
         '/task': (context) => TaskPage(),
         '/about': (context) => AboutPage(),
         '/account': (context) => AccountPage(),

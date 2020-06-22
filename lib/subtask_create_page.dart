@@ -7,7 +7,7 @@ import 'package:my_first_flutter_project/task_detail_manager_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:http/http.dart' as http;
-import 'CCList.dart';
+import 'MainPage.dart';
 
 import 'domain/data.dart';
 import 'models/order_list.dart';
@@ -206,7 +206,7 @@ class _SubtaskCreatePage extends State<SubtaskCreatePage> {
   }
 
   Future<List<OrderList>> _getOrderList() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     final responseContainers = await http
@@ -227,7 +227,7 @@ class _SubtaskCreatePage extends State<SubtaskCreatePage> {
   }
 
   Future<List<EmployeeList>> _getEmployeeList() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     final responseContainers = await http.get('$url/departmentStaff',
@@ -296,7 +296,7 @@ class _SubtaskCreatePage extends State<SubtaskCreatePage> {
       "ownDate": '${_dateTime.year}-$timeMonth-$timeDay $timeH:$timeM:$timeS'
     };
     var jsonResponse;
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     var response = await http.post("$url/task",
         headers: {
           "Content-Type": "application/json",

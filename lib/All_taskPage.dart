@@ -124,7 +124,7 @@ class _AllTaskPage extends State<AllTaskPage> {
   }
 
   _loadUser() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     int userId = sharedPreferences.getInt('orderUser');
@@ -140,7 +140,7 @@ class _AllTaskPage extends State<AllTaskPage> {
   }
 
   _loadCC() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     int userId = sharedPreferences.getInt('orderUser');
@@ -373,7 +373,7 @@ class _AllTaskPage extends State<AllTaskPage> {
 
   remove(int i) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     String token = sharedPreferences.getString('token');
     await http.delete('$url/listOfEmployee/${task[i].id}',
         headers: {"Authorization": "Bearer_$token"});
@@ -381,7 +381,7 @@ class _AllTaskPage extends State<AllTaskPage> {
   }
 
   _taskApp() async {
-    String url = CCTracker.getUrl;
+    String url = RiatMobile.getUrl;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token');
     int userId = sharedPreferences.getInt('orderUser');
