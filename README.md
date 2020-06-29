@@ -1,6 +1,18 @@
 # my_first_flutter_project
 
 A new Flutter project.
+## Форма авторизации.
+<img src="Screenshot_1591184968.png"  width="180" height="400">
+
+## Основные функции пользователя.
+<img src="Screenshot_1590793894 (2).png"  width="180" height="400">
+
+## Задачи пользователя.
+<img src="Screenshot_1590788205.png"  width="180" height="400">
+
+## Подробная информация о задаче пользователя.
+<img src="Screenshot_1590788248.png"  width="180" height="400">
+
 
 ## Getting Started
 
